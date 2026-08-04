@@ -1,0 +1,312 @@
+:root {
+  --bg-dark: #000000;
+  --bg-surface: #0a0a0a;
+  --bg-surface-hover: #121212;
+  --bg-element: #161616;
+  
+  --border-subtle: #222222;
+  --border-active: #ff4500;
+  
+  --primary-accent: #ff4500; /* Orangered */
+  --primary-accent-hover: #ff5511;
+  
+  --text-main: #ededed;
+  --text-muted: #888888;
+  --text-subtle: #555555;
+
+  --font-sans: 'Space Grotesk', 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-mono: 'DM Mono', monospace;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Ensure buttons, inputs, labels explicitly inherit Space Grotesk font */
+button, input, select, textarea, label {
+  font-family: var(--font-sans) !important;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #222222;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #444444;
+}
+
+/* Vercel Style Minimal Card Panel */
+.panel-vercel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+/* Vercel Minimal Button */
+.btn-vercel {
+  font-family: var(--font-sans) !important;
+  background: var(--bg-element);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+  min-height: 38px;
+}
+
+.btn-vercel:hover:not(:disabled) {
+  background: var(--bg-surface-hover);
+  border-color: #444444;
+  color: #ffffff;
+}
+
+.btn-vercel:active:not(:disabled) {
+  background: #000000;
+}
+
+.btn-vercel.primary {
+  background: var(--primary-accent);
+  color: #ffffff;
+  font-weight: 700;
+  border: 1px solid var(--primary-accent);
+}
+
+.btn-vercel.primary:hover:not(:disabled) {
+  background: var(--primary-accent-hover);
+  border-color: var(--primary-accent-hover);
+}
+
+.btn-vercel.active {
+  border-color: var(--primary-accent);
+  background: rgba(255, 69, 0, 0.1);
+  color: var(--primary-accent);
+}
+
+.btn-vercel:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* Minimal Badge */
+.badge-vercel {
+  font-family: var(--font-mono);
+  background: #111111;
+  border: 1px solid var(--border-subtle);
+  color: var(--primary-accent);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Transparent Canvas Checkerboard Pattern */
+.bg-checkerboard {
+  background-color: #050505;
+  background-image: 
+    linear-gradient(45deg, #111111 25%, transparent 25%), 
+    linear-gradient(-45deg, #111111 25%, transparent 25%), 
+    linear-gradient(45deg, transparent 75%, #111111 75%), 
+    linear-gradient(-45deg, transparent 75%, #111111 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+/* Minimal Range Sliders */
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  background: #222222;
+  border-radius: 3px;
+}
+input[type=range]::-webkit-slider-thumb {
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background: var(--text-main);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -6px;
+  transition: background 0.15s ease;
+}
+input[type=range]::-webkit-slider-thumb:hover {
+  background: var(--primary-accent);
+}
+
+/* Minimal Modal Backdrop */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Toast notification */
+.toast {
+  font-family: var(--font-sans);
+  position: fixed;
+  bottom: 74px;
+  right: 16px;
+  background: #0a0a0a;
+  border: 1px solid var(--primary-accent);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+}
+
+.portfolio-link {
+  font-family: var(--font-sans);
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.portfolio-link:hover {
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVE STYLES (< 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  header.panel-vercel {
+    margin: 8px 8px 4px 8px !important;
+    padding: 8px 12px !important;
+  }
+  
+  .hide-mobile {
+    display: none !important;
+  }
+
+  /* Mobile bottom drawer navigation */
+  .mobile-bottom-bar {
+    display: flex !important;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 58px;
+    background: #0a0a0a;
+    border-top: 1px solid var(--border-subtle);
+    z-index: 80;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 4px;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .mobile-nav-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 6px 0;
+  }
+
+  .mobile-nav-btn.active {
+    color: var(--primary-accent);
+  }
+
+  /* Mobile Drawer Panels */
+  .mobile-drawer {
+    position: fixed;
+    bottom: 58px;
+    left: 0;
+    right: 0;
+    background: #0a0a0a;
+    border-top: 1px solid var(--border-subtle);
+    border-radius: 12px 12px 0 0;
+    padding: 16px;
+    max-height: 60vh;
+    overflow-y: auto;
+    z-index: 75;
+    animation: slideUpMobile 0.25s ease-out;
+  }
+
+  @keyframes slideUpMobile {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+
+  .toast {
+    bottom: 70px;
+    left: 16px;
+    right: 16px;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-bottom-bar, .mobile-drawer-header {
+    display: none !important;
+  }
+}
